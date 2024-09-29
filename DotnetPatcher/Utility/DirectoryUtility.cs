@@ -103,9 +103,10 @@ namespace DotnetPatcher.Utility
 
 			return path.Substring(basePath.Length);
 		}
-		public static IEnumerable<(string file, string relPath)> EnumerateFiles(string dir) =>
-		   Directory.EnumerateFiles(dir, "*", SearchOption.AllDirectories)
-		   .Select(path => (file: path, relPath: RelPath(dir, path)));
+		public static IEnumerable<(string file, string relPath)> EnumerateFiles(string dir) => 
+			Directory.EnumerateFiles(dir, "*", SearchOption.AllDirectories)
+				.Select(path => path.Replace('\\', '/'))
+				.Select(path => (file: path, relPath: RelPath(dir, path)));
 		public static void Copy(string from, string to)
 		{
 			CreateParentDirectory(to);
