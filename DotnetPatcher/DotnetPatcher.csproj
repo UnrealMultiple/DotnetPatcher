@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ICSharpCode.Decompiler" Version="7.2.1.6856" />
+    <PackageReference Include="ICSharpCode.Decompiler" Version="8.2.0.7535" />
   </ItemGroup>
 
   <ItemGroup>
