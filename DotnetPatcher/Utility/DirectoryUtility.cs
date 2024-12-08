@@ -59,7 +59,7 @@ namespace DotnetPatcher.Utility
 			return path;
 		}
 
-		public static string PreparePath(string path) => path.Replace('/', Path.DirectorySeparatorChar);
+		// public static string PreparePath(string path) => path.Replace('/', Path.DirectorySeparatorChar);
 		public static bool DeleteEmptyDirs(string dir)
 		{
 			if (!Directory.Exists(dir))
@@ -84,13 +84,13 @@ namespace DotnetPatcher.Utility
 
 		public static string RelPath(string basePath, string path)
 		{
-			if (path.Last() == Path.DirectorySeparatorChar)
+			if (path.Last() == '/')
 				path = path.Substring(0, path.Length - 1);
 
-			if (basePath.Last() != Path.DirectorySeparatorChar)
-				basePath += Path.DirectorySeparatorChar;
+			if (basePath.Last() != '/')
+				basePath += '/';
 
-			if (path + Path.DirectorySeparatorChar == basePath) return "";
+			if (path + '/' == basePath) return "";
 
 			if (!path.StartsWith(basePath))
 			{
