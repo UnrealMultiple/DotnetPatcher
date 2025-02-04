@@ -56,7 +56,7 @@ namespace DotnetPatcher.Patch
 			string removedFileList = Path.Combine(PatchPath, RemovedFileList);
 			HashSet<string> noCopy = File.Exists(removedFileList) ? new HashSet<string>(File.ReadAllLines(removedFileList)) : new HashSet<string>();
 
-			HashSet<string> newFiles = new HashSet<string>();
+			ConcurrentBag<string> newFiles = new ConcurrentBag<string>();
 
 			List<WorkTask> patchTasks = new List<WorkTask>();
 			List<WorkTask> patchCopyTasks = new List<WorkTask>();
